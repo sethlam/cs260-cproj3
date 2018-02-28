@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/styles.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <title>Rick and Morty Site</title>
+</head>
+<body>
+  <div class="center" id="app">
+
+    <h1 style="font-size:70px;text-align:center;margin-bottom: 5">The Rick and Morty Random Character Site</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="all.html">All Characters</a></li>
+    </ul> 
+    <div>
+      <div v-if="loading">
+        <p>Hello, I am Loading...</p>
+      </div>
+      <div v-else>
+        <h1>{{ current.name}}</h1>
+        <img v-bind:src="current.image" v-bind:alt="current.alt">
+        <p><i>Status:  {{current.status}}</i></p>
+        <p><i>Species:  {{current.species}}</i></p>
+        <p><i>Gender:  {{current.gender}}</i></p>
+        <p><i>Last Location:  {{current.location.name}}</i></p>
+      </div>
+
+      <p>
+      <button v-on:click="random">Random</button>
+      </p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>

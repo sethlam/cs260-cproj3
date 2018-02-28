@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/styles.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <title>Rick and Morty Site</title>
+</head>
+<body>
+  <div class="center" id="app1">
+
+    <h1 style="font-size:70px;text-align:center;margin-bottom: 5">The Rick and Morty Site</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="all.html">All Characters</a></li>
+    </ul> 
+    <div v-if="loading">
+      <p>Loading...</p>
+    </div>
+    <div v-else>
+      <div v-for="object in current1">
+        <hr>
+        <h2>{{ object.name}}</h2>
+        <img v-bind:src="object.image" v-bind:alt="object.alt">
+        <p><i>Status:  {{object.status}}</i></p>
+        <p><i>Species:  {{object.species}}</i></p>
+        <p><i>Gender:  {{object.gender}}</i></p>
+        <p><i>Last Location:  {{object.location.name}}</i></p>
+      </div>
+    </div>
+
+    <p>
+      <button v-on:click="previous">Previous</button>
+      <button v-on:click="next">Next</button>
+    </p>
+    <p style="font-size:22px;text-align:center;"> {{this.number1}} </p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>
